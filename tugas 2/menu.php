@@ -104,6 +104,14 @@ nav ul li.btn1.hide i:before{
 <li class="logo">VANS SHOP</li>
 <li class="items"><a href="index.php"><i class="fas fa-home"></i> Home</a></li>
 <li class="items"><a href="kategori_produk.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Produk</a></li>
+<form method="get" class="navbar-form navbar-right">
+			<select class="form-control" name="kategori" onchange="document.location.href= this.options[this.selectedIndex].value;">
+	 			<option value="">Pilih Kategori</option>
+	 			<?php foreach ($datakategori as $key => $value): ?>
+	 			<option value="kategori.php?id=<?php echo $value["id_kategori"] ?>" value="<?php echo $value["id_kategori"] ?>" ><?php echo $value["nama_kategori"] ?> </option>
+	 			<?php endforeach ?>
+ 			</select>
+		</form>
 <?php 
 include 'koneksi.php';
 if (isset($_SESSION["pelanggan"])):?>
